@@ -1,7 +1,7 @@
 package com.onekk.gen.controller;
 
 
-import com.onekk.gen.dto.OnekkTableColumn;
+import com.onekk.gen.dto.OnekkTableColumnResult;
 import com.onekk.gen.service.TableColumnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class GenController {
     TableColumnService tableColumnService;
 
     @GetMapping("/column/{tableName}")
-    public List<OnekkTableColumn> getQuireColumn(@PathVariable("tableName") String tableName){
+    public List<OnekkTableColumnResult> getQuireColumn(@PathVariable("tableName") String tableName){
         return tableColumnService.quireColumn(tableName);
     }
 

@@ -1,6 +1,10 @@
 package com.onekk.gen.dto;
 
-public class OnekkTableColumn {
+import lombok.Data;
+
+@Data
+public class OnekkTableColumnResult {
+
     /**
      * 数据库字段名
      */
@@ -17,4 +21,5 @@ public class OnekkTableColumn {
      * 主键
      */
     private String columnKey;
+
 }

@@ -1,6 +1,6 @@
 package com.onekk.gen.service.impl;
 
-import com.onekk.gen.dto.OnekkTableColumn;
+import com.onekk.gen.dto.OnekkTableColumnResult;
 import com.onekk.gen.mapper.OnekkTableColumnMapper;
 import com.onekk.gen.service.TableColumnService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class TableColumnServiceImpl implements TableColumnService {
     OnekkTableColumnMapper onekkTableColumnMapper;
 
     @Override
-    public List<OnekkTableColumn> quireColumn(String tableName) {
+    public List<OnekkTableColumnResult> quireColumn(String tableName) {
         return onekkTableColumnMapper.quireColumn(tableName);
     }
 }
