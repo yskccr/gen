@@ -3,6 +3,7 @@ package com.onekk.gen.dto;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class OnekkTableEntity {
@@ -19,12 +20,12 @@ public class OnekkTableEntity {
     /**
      * 表的主键
      */
-    private OnekkTableColumn pk;
+    private OnekkTableColumnResult pk;
 
     /**
      * 表的列名(不包含主键)
      */
-    private List<OnekkTableColumn> columns;
+    private List<OnekkTableColumnResult> columns;
 
     /**
      *  类名(第一个字母大写)，如：sys_user => SysUser
@@ -34,5 +35,17 @@ public class OnekkTableEntity {
     /**
      * 类名(第一个字母小写)，如：sys_user => sysUser
      */
-    private String classname;
+    private String classnameUn;
+
+    /**
+     * 创建者
+     */
+    private String auther;
+
+    /**
+     * 额外参数
+     */
+    private Map paremMap;
+
+
 }
