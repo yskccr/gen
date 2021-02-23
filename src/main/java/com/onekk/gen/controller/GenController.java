@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipOutputStream;
 
 
 @RestController
@@ -40,9 +42,14 @@ public class GenController {
     public void tableCreat(@RequestBody OnekkTableEntityDto entity, HttpServletResponse response) throws IOException {
         OnekkTableEntity onekkTableEntity = tableColumnService.queryTableEntity(entity.getTableName(), entity.getClassName(), entity.getAuther(), entity.getComments());
         GenUtil genUtil = new GenUtil();
-        byte[] bytes = genUtil.GenCreat(onekkTableEntity);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ZipOutputStream zip = new ZipOutputStream(outputStream);
+        genUtil.GenCreat(onekkTableEntity,zip);
         ServletOutputStream out = response.getOutputStream();
-        IoUtil.write(out,true,bytes);
+        IoUtil.close(zip);
+        IoUtil.close(outputStream);
+        IoUtil.write(out,true,outputStream.toByteArray());
+
     }
 
 }

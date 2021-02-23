@@ -35,14 +35,15 @@ public class VelocityUtil {
         Template t=null;
         Map<String,String> map = new HashMap(4);
         // 输出
-        StringWriter sw = new StringWriter();
         for(String temp:template){
+            StringWriter sw = new StringWriter();
             sw.flush();
             t = ve.getTemplate(temp,"UTF-8");
             t.merge(context,sw);
+            sw.close();
             map.put(temp,sw.toString());
         }
-        sw.close();
+
         return map;
     }
 
