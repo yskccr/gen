@@ -4,6 +4,7 @@ package com.onekk.gen.util;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.IoUtil;
 import com.onekk.gen.dto.OnekkTableEntity;
+import com.onekk.gen.enums.TemplateEnum;
 import org.apache.velocity.VelocityContext;
 
 
@@ -20,7 +21,7 @@ public class GenUtil {
 
     private List<String> getTemplate(String... template){
         LinkedList<String> List = new LinkedList<>();
-        List.add("template/do.vm");
+        List.add(TemplateEnum.Do.getSourcePath());
         return List;
     }
 
