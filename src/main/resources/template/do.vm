@@ -1,0 +1,25 @@
+/**
+* ${comments}实体
+*
+* @author ${author}
+* @date ${datetime}
+*/
+@Data
+@TableName("${tableName}")
+public class ${className}Do implements Serializable {
+private static final long serialVersionUID = 1L;
+
+#foreach ($column in $columns)
+    #if($column.columnName == $pk.columnName)
+    /**
+    * $column.columnComment
+    */
+    @TableId
+    private $column.attrType $column.attrNameUn;
+    #else
+    /**
+    * $column.columnComment
+    */
+    private $column.attrType $column.attrNameUn;
+    #end#end
+}

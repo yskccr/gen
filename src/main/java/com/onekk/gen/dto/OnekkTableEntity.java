@@ -20,12 +20,12 @@ public class OnekkTableEntity {
     /**
      * 表的主键
      */
-    private OnekkTableColumnResult pk;
+    private OnekkTabelColunmnAttributes pk;
 
     /**
      * 表的列名(不包含主键)
      */
-    private List<OnekkTableColumnResult> columns;
+    private List<OnekkTabelColunmnAttributes> columns;
 
     /**
      *  类名(第一个字母大写)，如：sys_user => SysUser
