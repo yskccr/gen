@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 模板引擎工具类
+ */
 @Slf4j
 public class VelocityUtil {
     VelocityEngine ve = null;

@@ -6,23 +6,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+/**
+ * fild属性转换
+ */
 @Component
 public class AttrUtil {
 
     @Autowired
     TableEntityConfig tableEntityConfig;
 
+    /**
+     * 获取配置文件中db类型对应的java类中的类型
+     * @param dataType
+     * @return
+     */
     public  String getAttrType(String dataType){
         Props props = tableEntityConfig.getPropertiesConfiguration();
         return props.containsKey(dataType)? (String) props.get(dataType) :"String";
     }
 
+    /**
+     * 获取类属性名称
+     * @param coolumnName
+     * @return
+     */
     public String getAttrName(String coolumnName){
         coolumnName = coolumnName.toLowerCase();
         coolumnName = conversion(coolumnName);
         return coolumnName;
     }
 
+    /**
+     * 下划线_格式转换
+     * @param coolumnName
+     * @return
+     */
     private String conversion(String coolumnName) {
         StringBuilder stb = new StringBuilder();
 

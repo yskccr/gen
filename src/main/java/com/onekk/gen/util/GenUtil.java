@@ -17,6 +17,9 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+/**
+ * 代码生成工具类
+ */
 public class GenUtil {
 
     private List<String> getTemplate(String... template){
@@ -42,7 +45,13 @@ public class GenUtil {
 
     }
 
-
+    /**
+     * 转换成zip文件
+     * @param context
+     * @param classNme
+     * @param zip
+     * @throws IOException
+     */
     private void zipFile(Map<String, String> context,String classNme, ZipOutputStream zip) throws IOException {
         for(Map.Entry entry: context.entrySet()){
             String key = (String) entry.getKey();

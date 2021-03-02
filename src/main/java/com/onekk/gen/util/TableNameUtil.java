@@ -2,6 +2,9 @@ package com.onekk.gen.util;
 
 import com.onekk.gen.enums.TemplateEnum;
 
+/**
+ * 模板配置工具类
+ */
 public class TableNameUtil {
 
     public static String getTableName(String name,String className){
